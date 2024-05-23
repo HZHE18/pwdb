@@ -168,11 +168,9 @@ for sim_no = 1 : length(parameters.age)
     % extra output files
     commandLine = ['oneDbio -O -L -d -t -R -s -m ', FileName, '.in && echo ''', FileName,''' >> ', curr_success_filename,'.txt || echo ''', FileName,''' >> ', curr_error_filename, '.txt']; clear curr_sim_setting
     fprintf(fidCommand(current_command_file_no), [commandLine,'\n']);
-    
-    clear FileName curr_sim_setting commandLine
-    
 end
 
+clear FileName curr_sim_setting commandLine
 % Finish command cloud file
 for file_no = 1 : length(fidCommand)
     fclose(fidCommand(file_no));

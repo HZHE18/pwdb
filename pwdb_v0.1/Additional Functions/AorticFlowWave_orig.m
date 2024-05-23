@@ -223,15 +223,14 @@ for param_no = 1 : length(missing_params)
         case 'file_path'
             val = '/Users/petercharlton/Google Drive/Work/Code/AorticFlowWave/AorticFlowWave manual/Figures/';
             if ~exist(val, 'dir')
-                val = uigetdir;
+                %val = uigetdir;
+                eval(['mkdir ', val])
             end
     end
             
     % insert this baseline value
     eval(['inflow.input_settings.' curr_missing_param ' = val;'])
-    
-    clear val
-    
+    %clear val
 end
 
 % move user specified settings to this new structure
